@@ -1,5 +1,7 @@
+package com.example;
 
-import event.BankAccount;
+import com.example.event.BankAccount;
+import com.example.source.TemperatureSensor;
 import org.apache.flink.api.common.functions.AggregateFunction;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.java.functions.KeySelector;
@@ -17,7 +19,6 @@ import org.apache.flink.streaming.api.functions.timestamps.AscendingTimestampExt
 import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.util.Collector;
-import source.TemperatureSensor;
 
 import java.util.List;
 import java.util.Map;
@@ -30,10 +31,10 @@ public class BankStreamingFlink {
         // set up the streaming execution environment
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
-        // set time characteristic to be event timestamp
+        // set time characteristic to be com.example.event timestamp
         env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
 
-        // assign fictious stream of data as our data source and extract timestamp field
+        // assign fictious stream of data as our data com.example.source and extract timestamp field
         DataStream<BankAccount> inputStream = env.addSource(new TemperatureSensor()).assignTimestampsAndWatermarks(new AscendingTimestampExtractor<BankAccount>() {
             @Override
             public long extractAscendingTimestamp(BankAccount sensor) {

@@ -1,10 +1,9 @@
-package source;
+package com.example.source;
 
 
-import event.BankAccount;
+import com.example.event.BankAccount;
 import org.apache.flink.streaming.api.functions.source.RichSourceFunction;
 
-import java.text.DecimalFormat;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
@@ -13,9 +12,6 @@ import java.util.stream.IntStream;
 public class TemperatureSensor extends RichSourceFunction<BankAccount> {
 
     private boolean running = true;
-    private String BSZ;
-    private Double balance;
-    private String holderName;
 
     private AtomicInteger id = new AtomicInteger(0);
     private AtomicLong accountNumber = new AtomicLong(100);
