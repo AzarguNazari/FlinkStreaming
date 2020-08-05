@@ -13,6 +13,12 @@ public class PostStreamingFlink {
 
     public static void main(String[] args) throws Exception {
 
+//        System.getProperties().put("log4j.rootLogger", "INFO, console");
+//        System.getProperties().put("log4j.appender.console", "org.apache.log4j.ConsoleAppender");
+//        System.getProperties().put("log4j.appender.console.layout", "org.apache.log4j.PatternLayout");
+//        System.getProperties().put("log4j.appender.console.layout.ConversionPattern", "%d{HH:mm:ss,SSS} %-5p %-60c %x - %m%n");
+
+
         // set up the streaming execution environment
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
